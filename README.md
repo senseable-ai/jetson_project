@@ -1,3 +1,4 @@
+## install
 install jetpack 5.1.1
 install pytorch / torchvision // 0.12.0 / 0.13.0
 install trtexec
