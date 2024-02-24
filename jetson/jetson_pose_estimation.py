@@ -40,13 +40,13 @@ while True:
         break
 
     # Prepare results for JSON conversion
-    json_results = results.pandas().xyxy[0].to_json(orient="records")
+    json_results = results.pandas().xyxy[0].to_json(orient="records", indent=4)  # Modified for readability
 
 # Release the capture
 cap.release()
 cv2.destroyAllWindows()
 
-# Save the last frame's results to JSON
+# Save the last frame's results to JSON with better readability
 json_filename = "pose_estimation_results.json"
 with open(json_filename, "w") as f:
     f.write(json_results)
