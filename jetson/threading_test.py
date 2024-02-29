@@ -5,6 +5,7 @@ import os
 import threading
 import time
 from datetime import datetime
+import queue  # queue 모듈 임포트 추가
 
 class SaveDataThread(threading.Thread):
     def __init__(self, data_queue):
@@ -24,7 +25,7 @@ class SaveDataThread(threading.Thread):
 def run_yolo_webcam_detection():
     model = YOLO('yolov8n-pose.pt')
     cap = cv2.VideoCapture(0)
-    data_queue = queue.Queue()
+    data_queue = queue.Queue()  # queue.Queue()로 변경
     SaveDataThread(data_queue).start()
 
     start_time = time.time()
